@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 7</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 50px;
+            color: greenyellow;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8); 
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease-in-out;
+        }
+        .button:hover {
+            background-color: red;
+            transform: scale(1.1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .animated-banner {
+            font-size: 24px;
+            animation: fadeIn 3s ease-in-out;
+        }
+        .hidden {
+            display: none;
+        }
+        .modal {
+            width: 300px;
+            padding: 20px;
+            background: lightgray;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: slideIn 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="animated-banner"> Building An Interactive And Dynamic Web Page</h1>
+    <button class="button" onclick="toggleModal()">Click Me!!</button>
+    <div id="modal" class="modal hidden">
+        <p>This is a modal box</p>
+        <button class="button" onclick="toggleModal()">Close</button>
+    </div>
+    <h2>Calculating Area Of A Rectangle</h2>
+    <input type="number" id="length" placeholder="Enter the length">
+    <input type="number" id="width" placeholder="Enter the width">
+    <button class="button" onclick="calculateArea()">Calculate</button>
+    <p id="result"></p>
+    <script>
+        function calculateArea() {
+            let length = document.getElementById('length').value;
+            let width = document.getElementById('width').value;
+            let area = length * width;
+            document.getElementById('result').innerText = 'Area: ' + area;
+        }
+        
+        function toggleModal() {
+            let modal = document.getElementById('modal');
+            modal.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
